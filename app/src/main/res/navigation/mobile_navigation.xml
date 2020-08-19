@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.obtain25.ui.home.HomeFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_home">
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.obtain25.ui.home.account.MyAccountFragment"
+        android:label="My Account"
+        tools:layout="@layout/fragment_my_account" />
+
+    <fragment
+        android:id="@+id/nav_coupan"
+        android:name="com.obtain25.ui.home.coupan.ViewCouponFragment"
+        android:label="View Coupan's"
+        tools:layout="@layout/fragment_view_coupon" />
+
+    <fragment
+        android:id="@+id/nav_add_coupan"
+        android:name="com.obtain25.ui.home.coupan.CreateCoupanFragment"
+        android:label="Create Coupan's"
+        tools:layout="@layout/fragment_create_coupan" />
+
+    <fragment
+        android:id="@+id/nav_view_all_request"
+        android:name="com.obtain25.ui.home.viewrequest.ViewAllRequestFragment"
+        android:label="View All Request"
+        tools:layout="@layout/fragment_view_all_request" />
+
+    <fragment
+        android:id="@+id/nav_receive_request"
+        android:name="com.obtain25.ui.home.receiverequest.ReceiveRequestFragment"
+        android:label="Receive Request"
+        tools:layout="@layout/fragment_receive_request" />
+
+
+    <fragment
+        android:id="@+id/nav_upload_resto_image"
+        android:name="com.obtain25.ui.home.uploadimage.UploadRestoImageFragment"
+        android:label="Upload Restaurant Images"
+        tools:layout="@layout/fragment_upload_resto_image" />
+
+    <fragment
+        android:id="@+id/nav_about_app"
+        android:name="com.obtain25.ui.home.account.AboutAppFragment"
+        android:label="About App"
+        tools:layout="@layout/fragment_about_app" />
+
+</navigation>

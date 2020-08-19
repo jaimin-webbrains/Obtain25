@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Obtain25New</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="address">446-447, Earth Alpha,Tandalja Rd,AshwameghNagar,Vasna Vadodara,Gujarat 390012</string>
+    <string name="upload">You Can Upload Maximum 15 Photos Of Your Restaurant</string>
+    <string name="date">Date &amp; Time</string>
+</resources>
