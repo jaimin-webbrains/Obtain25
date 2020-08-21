@@ -182,7 +182,7 @@ public class RetrofitHelper {
 
         @FormUrlEncoded
         @Headers({"Accept: application/json"})
-        @POST("ChangePasswordUser")
+        @POST("ChangePassword")
         Call<SuccessModel> ChangePasswordUser(@FieldMap HashMap<String, String> hashMap);
 
 

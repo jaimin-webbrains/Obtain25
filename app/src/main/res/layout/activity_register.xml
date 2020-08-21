@@ -39,6 +39,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -55,7 +56,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"
@@ -67,6 +68,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -83,7 +85,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"
@@ -95,6 +97,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -111,7 +114,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"
@@ -123,6 +126,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -139,7 +143,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"
@@ -152,6 +156,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -168,7 +173,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"
@@ -180,6 +185,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -196,7 +202,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"
@@ -209,6 +215,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -225,7 +232,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"
@@ -241,25 +248,44 @@
 
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/customfontstyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text="Password"
-                        style="@style/customfontstyle"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_size_large" />
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/editText_Password"
-                        style="@style/customfontstyle"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
-                        android:focusableInTouchMode="true"
-                        android:imeOptions="actionNext"
-                        android:inputType="textPassword"
-                        android:textColor="@color/overlay_dark_40"
-                        android:textColorHint="@color/white" />
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/editText_Password"
+                            style="@style/customfontstyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.7"
+                            android:background="@null"
+                            android:focusableInTouchMode="true"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:textColor="@color/overlay_dark_40"
+                            android:textColorHint="@color/white" />
+
+                        <ImageView
+                            android:id="@+id/show_password"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="right|center"
+                            android:alpha=".5"
+                            android:onClick="ShowHidePass"
+                            android:src="@drawable/ic_baseline_visibility_off_24" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -269,30 +295,50 @@
 
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/customfontstyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text="Confirm Password"
-                        style="@style/customfontstyle"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_size_large" />
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/editText_CPassword"
-                        style="@style/customfontstyle"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
-                        android:focusableInTouchMode="true"
-                        android:imeOptions="actionNext"
-                        android:inputType="textPassword"
-                        android:textColor="@color/overlay_dark_40"
-                        android:textColorHint="@color/white" />
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/editText_CPassword"
+                            style="@style/customfontstyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.7"
+                            android:background="@null"
+                            android:focusableInTouchMode="true"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:textColor="@color/overlay_dark_40"
+                            android:textColorHint="@color/white" />
+
+                        <ImageView
+                            android:id="@+id/show_confirm"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="right|center"
+                            android:alpha=".5"
+                            android:onClick="ShowHidePass"
+                            android:src="@drawable/ic_baseline_visibility_off_24" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
 
@@ -309,7 +355,7 @@
                         style="@style/customfontstyle"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
                         android:imeOptions="actionNext"

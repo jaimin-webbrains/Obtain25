@@ -13,6 +13,16 @@ public class AppPreferences {
     private static SharedPreferences mPrefs;
     private static SharedPreferences.Editor mPrefsEditor;
 
+    public static void setToken(Context ctx, String value) {
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        mPrefsEditor = mPrefs.edit();
+        mPrefsEditor.putString("Token", value);
+        mPrefsEditor.commit();
+    }
+    public static String getToken(Context ctx) {
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        return mPrefs.getString("Token", null);
+    }
 
     public static void setminValue(Context ctx, String value) {
         mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);

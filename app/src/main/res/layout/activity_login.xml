@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <androidx.core.widget.NestedScrollView
@@ -28,13 +27,13 @@
 
 
                 <TextView
+                    style="@style/customfontstyle"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="40dp"
                     android:gravity="center"
                     android:text="Login"
-                    style="@style/customfontstyle"
                     android:textAllCaps="false"
                     android:textColor="@color/colorPrimary"
                     android:textSize="26sp" />
@@ -54,10 +53,11 @@
 
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/customfontstyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Email Id"
-                            style="@style/customfontstyle"
+                            android:layout_margin="5dp"
                             android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/text_size_large" />
 
@@ -66,10 +66,10 @@
                             style="@style/customfontstyle"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:layout_marginTop="@dimen/spacing_large"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/upperimage"
                             android:focusableInTouchMode="true"
                             android:imeOptions="actionNext"
-                            android:background="@drawable/upperimage"
                             android:inputType="textEmailAddress"
                             android:textColor="@color/overlay_dark_40"
                             android:textColorHint="@color/white" />
@@ -82,27 +82,44 @@
 
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/customfontstyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
                             android:text="Password"
-                            style="@style/customfontstyle"
                             android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/text_size_large" />
 
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/editText_Password"
-                            style="@style/customfontstyle"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/spacing_xxlarge"
-                            android:layout_marginTop="@dimen/spacing_large"
-                            android:focusable="true"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
                             android:background="@drawable/upperimage"
-                            android:focusableInTouchMode="true"
-                            android:imeOptions="actionDone"
-                            android:inputType="textPassword"
-                            android:textColor="@color/overlay_dark_40"
-                            android:textColorHint="@color/white"
-                            android:textStyle="bold" />
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/editText_Password"
+                                style="@style/customfontstyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.7"
+                                android:background="@null"
+                                android:focusableInTouchMode="true"
+                                android:imeOptions="actionDone"
+                                android:inputType="textPassword"
+                                android:textColor="@color/overlay_dark_40"
+                                android:textColorHint="@color/white" />
+
+                            <ImageView
+                                android:id="@+id/show_confirm"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="right|center"
+                                android:alpha=".5"
+                                android:onClick="ShowHidePass"
+                                android:src="@drawable/ic_baseline_visibility_off_24" />
+                        </LinearLayout>
                     </LinearLayout>
 
 

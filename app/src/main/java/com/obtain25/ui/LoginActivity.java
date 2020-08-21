@@ -2,10 +2,13 @@ package com.obtain25.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     AppCompatButton btn_login;
     AppCompatTextView label_donthaveaccount;
     LoginModel loginModel;
+    ImageView show_confirm;
 
 
     @Override
@@ -47,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             loginModel = PrefUtils.getUser(LoginActivity.this);
             if (loginModel.getSessionData() != null) {
                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                i.putExtra("type","1");
                 startActivity(i);
                 finish();
             }
@@ -55,12 +60,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         editText_Email = findViewById(R.id.editText_Email);
         editText_Password = findViewById(R.id.editText_Password);
+        show_confirm = findViewById(R.id.show_confirm);
         btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(this);
         label_donthaveaccount = findViewById(R.id.label_donthaveaccount);
         label_donthaveaccount.setOnClickListener(this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        show_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowHidePass(v);
+            }
 
+            private void ShowHidePass(View v) {
+                if (v.getId() == R.id.show_confirm) {
+
+                    if (editText_Password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                        ((ImageView)(v)).setImageResource(R.drawable.ic_baseline_remove_red_eye_24);
+
+                        //Show Password
+                        editText_Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    } else {
+                        ((ImageView) (v)).setImageResource(R.drawable.ic_baseline_visibility_off_24);
+
+                        //Hide Password
+                        editText_Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+                    }
+                }
+            }
+        });
     }
 
     public void LoginCall() {
@@ -100,6 +129,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Toast.makeText(LoginActivity.this, object.getMessage(), Toast.LENGTH_SHORT).show();
 
                         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                        i.putExtra("type","0");
                         startActivity(i);
                         finish();
 

@@ -36,6 +36,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -45,6 +46,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.obtain25.R;
+import com.obtain25.api.BuildConstants;
 import com.obtain25.api.RetrofitHelper;
 import com.obtain25.model.login.LoginModel;
 import com.obtain25.model.term.ResultGetTurms;
@@ -78,6 +80,7 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
     DrawerLayout drawer;
     ImageView imageView;
     Dialog dialog;
+    String type;
     Integer loginId, savedId;
     private AppBarConfiguration mAppBarConfiguration;
     private long UPDATE_INTERVAL = 2
@@ -88,6 +91,8 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        type = getIntent().getStringExtra("type");
+
         loginModel = PrefUtils.getUser(HomeActivity.this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         viewDialog = new ViewDialog(HomeActivity.this);
@@ -120,6 +125,17 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
 
 
         imageView = (ImageView) header.findViewById(R.id.imageView);
+        if (PrefUtils.getUser(this).getSessionData().getRestoPhoto() != null) {
+            Glide.with(HomeActivity.this).
+                    load(BuildConstants.Main_Image + PrefUtils.getUser(this).getSessionData().getRestoPhoto()).
+                    asBitmap().
+                    into(imageView);
+        } else {
+            Glide.with(HomeActivity.this).
+                    load(R.drawable.image).
+                    asBitmap().
+                    into(imageView);
+        }
 
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -147,9 +163,11 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
                 return false;
             }
         });
+        if (type.equals("0")) {
+            GetTerm();
+        } else if (type.equals("1")) {
 
-        GetTerm();
-
+        }
 
     }
 

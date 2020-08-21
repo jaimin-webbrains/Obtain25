@@ -28,6 +28,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.obtain25.ui.LoginActivity;
 import com.obtain25.utils.AppPreferences;
 
@@ -54,7 +57,14 @@ public class SplashActivity extends AppCompatActivity implements LocationListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                newToken = instanceIdResult.getToken();
+                AppPreferences.setToken(SplashActivity.this, newToken);
+                Log.e("TOKEN: ", newToken);
+            }
+        });
 
         isGooglePlayServicesAvailable();
         if (!isLocationEnabled())

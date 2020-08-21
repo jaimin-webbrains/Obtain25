@@ -1,11 +1,13 @@
 package com.obtain25.ui;
 
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,14 +38,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected ViewDialog viewDialog;
     AppCompatEditText editText_Address, editText_CPassword, editText_Password, editText_Food, editText_Adhar, editText_GST, editText_Mobile, editText_Email, editText_Person, editText_Name;
     AppCompatButton btn_signUp;
-
+    ImageView show_password, show_confirm;
+    String updateToken;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        updateToken = AppPreferences.getToken(RegisterActivity.this);
         viewDialog = new ViewDialog(RegisterActivity.this);
         viewDialog.setCancelable(false);
         editText_Address = findViewById(R.id.editText_Address);
@@ -56,7 +59,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editText_Email = findViewById(R.id.editText_Email);
         editText_Person = findViewById(R.id.editText_Person);
         editText_Name = findViewById(R.id.editText_Name);
+        show_password = findViewById(R.id.show_password);
+        show_confirm = findViewById(R.id.show_confirm);
         btn_signUp = findViewById(R.id.btn_signUp);
+        show_password.setOnClickListener(this);
+        show_confirm.setOnClickListener(this);
         btn_signUp.setOnClickListener(this);
 
     }
@@ -77,6 +84,46 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_signUp:
                 SignUpCall();
                 break;
+            case R.id.show_password:
+                ShowHidePass(v);
+                break;
+            case R.id.show_confirm:
+                ShowHidePassC(v);
+                break;
+        }
+    }
+    private void ShowHidePassC(View v) {
+        if (v.getId() == R.id.show_confirm) {
+
+            if (editText_CPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                ((ImageView) (v)).setImageResource(R.drawable.ic_baseline_remove_red_eye_24);
+
+                //Show Password
+                editText_CPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                ((ImageView) (v)).setImageResource(R.drawable.ic_baseline_visibility_off_24);
+
+                //Hide Password
+                editText_CPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+        }
+    }
+    private void ShowHidePass(View v) {
+        if (v.getId() == R.id.show_password) {
+
+            if (editText_Password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                ((ImageView) (v)).setImageResource(R.drawable.ic_baseline_remove_red_eye_24);
+
+                //Show Password
+                editText_Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                ((ImageView) (v)).setImageResource(R.drawable.ic_baseline_visibility_off_24);
+
+                //Hide Password
+                editText_Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
         }
     }
 
@@ -149,6 +196,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             hashMap.put("food_license", food + "");
             hashMap.put("latitude", AppPreferences.getLati(this) + "");
             hashMap.put("longitude", AppPreferences.getLongi(this) + "");
+            //hashMap.put("user_tocken", updateToken);
 
 
             Log.e("HasMap =>", hashMap + "");

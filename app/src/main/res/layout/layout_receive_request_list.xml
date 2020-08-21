@@ -33,8 +33,9 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/customfontstyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
                     android:layout_margin="5dp"
                     android:padding="4dp"
                     android:text="Customer Name"
@@ -44,11 +45,12 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txtCName"
                     style="@style/customfontstyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:layout_margin="5dp"
                     android:padding="4dp"
-                    android:gravity="center"
+                    android:gravity="start"
                     android:text="Customer Name"
                     android:textColor="@color/grey_60"
                     android:textSize="@dimen/text_size_large" />
@@ -69,8 +71,9 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/customfontstyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
                     android:layout_margin="5dp"
                     android:padding="4dp"
                     android:text="Total Person"
@@ -81,12 +84,13 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txtPerson"
                     style="@style/customfontstyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:layout_margin="5dp"
                     android:padding="4dp"
                     android:text="abc"
-                    android:gravity="center"
+                    android:gravity="start"
                     android:textColor="@color/grey_60"
                     android:textSize="@dimen/text_size_large" />
 
@@ -106,8 +110,9 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/customfontstyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
                     android:layout_margin="5dp"
                     android:padding="4dp"
                     android:text="@string/date"
@@ -117,12 +122,13 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txtDate"
                     style="@style/customfontstyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
                     android:layout_margin="5dp"
                     android:padding="4dp"
                     android:text="abc"
-                    android:gravity="center"
+                    android:gravity="start"
                     android:textColor="@color/grey_60"
                     android:textSize="@dimen/text_size_large" />
             </LinearLayout>
