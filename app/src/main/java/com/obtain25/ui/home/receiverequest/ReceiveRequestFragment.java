@@ -45,9 +45,7 @@ import retrofit2.Response;
 public class ReceiveRequestFragment extends Fragment {
 
     protected ViewDialog viewDialog;
-    Dialog dialog;
     LoginModel loginModel;
-    FloatingActionButton fab;
     String latitude, longitude;
     private RecyclerView myFriendsRecyclerView;
     private MyCustomAdapter myCustomAdapter;
@@ -281,11 +279,9 @@ public class ReceiveRequestFragment extends Fragment {
                                 Toast.makeText(getContext(), object.getMsg() + "", Toast.LENGTH_SHORT).show();
                                 holder.card.setVisibility(View.GONE);
                                 GetReceiveRequest();
-                                dialog.dismiss();
                             } else if (object != null && object.getError() == true) {
                                 Toast.makeText(getContext(), object.getMsg() + "", Toast.LENGTH_SHORT).show();
 
-                                dialog.dismiss();
                             } else {
                                 JSONObject jObjError = null;
                                 try {

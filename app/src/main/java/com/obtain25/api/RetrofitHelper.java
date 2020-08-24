@@ -135,6 +135,10 @@ public class RetrofitHelper {
         @POST("GetTurms")
         Call<ResultGetTurms> GetTurms(@FieldMap HashMap<String, String> hashMap);
 
+        @FormUrlEncoded
+        @Headers({"Accept: application/json"})
+        @POST("forgetpasswordResto")
+        Call<SuccessModel> forgetpassword(@FieldMap HashMap<String, String> hashMap);
 
         /////////////////////coupan////////////////////////////
         @FormUrlEncoded

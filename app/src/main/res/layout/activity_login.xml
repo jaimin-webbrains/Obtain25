@@ -56,8 +56,8 @@
                             style="@style/customfontstyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Email Id"
                             android:layout_margin="5dp"
+                            android:text="Email Id"
                             android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/text_size_large" />
 
@@ -122,6 +122,16 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/label_f_password"
+                        style="@style/customfontstyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="right"
+                        android:text="Forgot password?"
+                        android:textColor="@color/overlay_dark_70"
+                        android:textSize="20sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_login"

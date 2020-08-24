@@ -214,7 +214,7 @@ public class AcceptedRequestFragmentFragment extends Fragment {
         public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
-            TextView txtCName, txtPerson, txtDate, txtStatus;
+            TextView txtCName, txtPerson, txtDate;
 
 
             public MyViewHolder(View view) {
