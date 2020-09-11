@@ -272,7 +272,7 @@
                             android:layout_weight="0.7"
                             android:background="@null"
                             android:focusableInTouchMode="true"
-                            android:imeOptions="actionDone"
+                            android:imeOptions="actionNext"
                             android:inputType="textPassword"
                             android:textColor="@color/overlay_dark_40"
                             android:textColorHint="@color/white" />
@@ -319,7 +319,7 @@
                             android:layout_weight="0.7"
                             android:background="@null"
                             android:focusableInTouchMode="true"
-                            android:imeOptions="actionDone"
+                            android:imeOptions="actionNext"
                             android:inputType="textPassword"
                             android:textColor="@color/overlay_dark_40"
                             android:textColorHint="@color/white" />
@@ -358,7 +358,7 @@
                         android:layout_margin="5dp"
                         android:background="@drawable/upperimage"
                         android:focusableInTouchMode="true"
-                        android:imeOptions="actionNext"
+                        android:imeOptions="actionDone"
                         android:inputType="text"
                         android:textColor="@color/overlay_dark_40"
                         android:textColorHint="@color/white" />

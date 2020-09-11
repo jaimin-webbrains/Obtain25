@@ -25,6 +25,28 @@ public class ResponseRestoDisplayUserRequest_ {
     @SerializedName("user_photo")
     @Expose
     private String userPhoto;
+    @SerializedName("date")
+    @Expose
+    private String date;
+    @SerializedName("time")
+    @Expose
+    private String Time;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
 
     public String getId() {
         return id;

@@ -191,6 +191,7 @@ public class HomeFragment extends Fragment {
       holder.txtDiscount.setText("Discount Value : " + datum.getDiscountValue() + "");
       holder.txtType.setText("Discount Type : " + datum.getDiscountType() + "");
       holder.txtAmount.setText("Minimum Amount : " + datum.getMinimumAmount() + "");
+      holder.txtMaxAmount.setText("Maximum Amount : " + datum.getMaximum_amount() + "");
       holder.imgpercent.setText(datum.getActive() + "");
       if (datum.getRestoPhoto() != null) {
         Glide.with(getActivity()).
@@ -215,7 +216,7 @@ public class HomeFragment extends Fragment {
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
-      TextView imgpercent, txtAmount, txtType, txtDiscount, txtName;
+      TextView imgpercent, txtAmount, txtType, txtDiscount, txtName,txtMaxAmount;
       ImageView img;
 
 
@@ -226,6 +227,7 @@ public class HomeFragment extends Fragment {
         txtName = view.findViewById(R.id.txtName);
         txtDiscount = view.findViewById(R.id.txtDiscount);
         txtType = view.findViewById(R.id.txtType);
+        txtMaxAmount = view.findViewById(R.id.txtMaxAmount);
         txtAmount = view.findViewById(R.id.txtAmount);
         imgpercent = view.findViewById(R.id.imgpercent);
         img = view.findViewById(R.id.img);

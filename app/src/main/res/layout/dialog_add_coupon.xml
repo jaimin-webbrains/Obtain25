@@ -67,7 +67,7 @@
                     android:layout_height="?attr/actionBarSize"
                     android:hint="Add Discount Value"
                     android:padding="10dp"
-                    android:inputType="text"
+                    android:inputType="number"
                     style="@style/customfontstyle"
                     android:textColor="@color/overlay_dark_40"
                     android:textColorHint="@color/overlay_dark_40" />
@@ -78,11 +78,21 @@
                     android:layout_height="?attr/actionBarSize"
                     android:hint="Add Minimum Amount"
                     android:padding="10dp"
-                    android:inputType="text"
+                    android:inputType="number"
                     style="@style/customfontstyle"
                     android:textColor="@color/overlay_dark_40"
                     android:textColorHint="@color/overlay_dark_40" />
 
+                <EditText
+                    android:id="@+id/editText_MaxRupee"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:hint="Add Maximum Amount"
+                    android:padding="10dp"
+                    android:inputType="number"
+                    style="@style/customfontstyle"
+                    android:textColor="@color/overlay_dark_40"
+                    android:textColorHint="@color/overlay_dark_40" />
 
 
                 <Button

@@ -213,6 +213,16 @@ public class RetrofitHelper {
         @POST("UpdateRequest")
         Call<SuccessModel> UpdateRequest(@FieldMap HashMap<String, String> hashMap);
 
+        @FormUrlEncoded
+        @Headers({"Accept: application/json"})
+        @POST("RestoEditUserRequest")
+        Call<SuccessModel> RestoEditUserRequest(@FieldMap HashMap<String, String> hashMap);
+
+        @FormUrlEncoded
+        @Headers({"Accept: application/json"})
+        @POST("RestoDeleteUserRequest")
+        Call<SuccessModel> RestoDeleteUserRequest(@FieldMap HashMap<String, String> hashMap);
+
     }
 
 

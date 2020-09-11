@@ -214,6 +214,7 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
             holder.txtDiscount.setText("Discount Value : " + datum.getDiscountValue() + "");
             holder.txtType.setText("Discount Type : " + datum.getDiscountType() + "");
             holder.txtAmount.setText("Minimum Amount : " + datum.getMinimumAmount() + "");
+            holder.txtMaxAmount.setText("Maximum Amount : " + datum.getMaximum_amount() + "");
             holder.imgpercent.setText(datum.getActive() + "");
             if (datum.getRestoPhoto() != null) {
                 Glide.with(getActivity()).
@@ -326,10 +327,12 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
 
                     final EditText editText_Discount = dialog.findViewById(R.id.editText_Discount);
                     final EditText editText_Rupee = dialog.findViewById(R.id.editText_Rupee);
+                    final EditText editText_MaxRupee = dialog.findViewById(R.id.editText_MaxRupee);
                     final Button btn_addLocation = dialog.findViewById(R.id.btn_addLocation);
 
                     editText_Discount.setText(datum.getDiscountValue() + "");
                     editText_Rupee.setText(datum.getMinimumAmount() + "");
+                    editText_MaxRupee.setText(datum.getMaximum_amount() + "");
 
 
                     btn_addLocation.setOnClickListener(new View.OnClickListener() {
@@ -337,6 +340,7 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
                         public void onClick(View v) {
                             final String editDiccount = editText_Discount.getText().toString().trim();
                             final String editAmount = editText_Rupee.getText().toString().trim();
+                            final String editMaxAmount = editText_MaxRupee.getText().toString().trim();
 
 
                             if (editDiccount.isEmpty()) {
@@ -345,14 +349,20 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
                                 return;
                             }
                             if (editAmount.isEmpty()) {
-                                editText_Rupee.setError("Maximum Amount Required");
+                                editText_Rupee.setError("Minimum Amount Required");
                                 editText_Rupee.requestFocus();
+                                return;
+                            }
+                            if (editMaxAmount.isEmpty()) {
+                                editText_MaxRupee.setError("Maximum Amount Required");
+                                editText_MaxRupee.requestFocus();
                                 return;
                             } else {
 
                                 HashMap<String, String> hashMap = new HashMap<>();
                                 hashMap.put("discount_value", editDiccount + "");
                                 hashMap.put("minimum_amount", editAmount + "");
+                                hashMap.put("maximum_amount", editMaxAmount + "");
                                 hashMap.put("discount_type", datum.getDiscountType());
                                 hashMap.put("restaurant_id", PrefUtils.getUser(getActivity()).getSessionData().getId());
                                 hashMap.put("id", datum.getId() + "");
@@ -431,7 +441,7 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
         public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
-            TextView imgpercent, txtAmount, txtType, txtDiscount, txtName;
+            TextView imgpercent, txtAmount, txtType, txtDiscount, txtName, txtMaxAmount;
             ImageView img;
             ImageButton label_po_edit, label_delete;
             LinearLayout l1;
@@ -444,6 +454,7 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
                 txtDiscount = view.findViewById(R.id.txtDiscount);
                 txtType = view.findViewById(R.id.txtType);
                 txtAmount = view.findViewById(R.id.txtAmount);
+                txtMaxAmount = view.findViewById(R.id.txtMaxAmount);
                 imgpercent = view.findViewById(R.id.imgpercent);
                 img = view.findViewById(R.id.img);
                 label_delete = view.findViewById(R.id.label_delete);

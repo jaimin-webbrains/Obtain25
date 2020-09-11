@@ -22,6 +22,9 @@ public class ResultDisplayRestaurantCoupon_ {
     @SerializedName("minimum_amount")
     @Expose
     private String minimumAmount;
+    @SerializedName("maximum_amount")
+    @Expose
+    private String maximum_amount;
     @SerializedName("active")
     @Expose
     private String active;
@@ -157,5 +160,13 @@ public class ResultDisplayRestaurantCoupon_ {
 
     public void setRestoPhoto(String restoPhoto) {
         this.restoPhoto = restoPhoto;
+    }
+
+    public String getMaximum_amount() {
+        return maximum_amount;
+    }
+
+    public void setMaximum_amount(String maximum_amount) {
+        this.maximum_amount = maximum_amount;
     }
 }

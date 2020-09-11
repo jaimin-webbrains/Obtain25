@@ -188,7 +188,7 @@ public class ReceiveRequestFragment extends Fragment {
             status = datum.getStatus() + "";
             holder.txtCName.setText(datum.getName() + "");
             holder.txtPerson.setText(datum.getNumMember() + "");
-            holder.txtDate.setText(datum.getDateAndTime() + "");
+            holder.txtDate.setText(datum.getDate() + " " + datum.getTime() + "");
             holder.l1Accept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
