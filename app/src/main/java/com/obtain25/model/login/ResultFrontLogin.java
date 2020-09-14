@@ -86,6 +86,10 @@ public class ResultFrontLogin {
     @SerializedName("longitude")
     @Expose
     private String longitude;
+    @SerializedName("user_tocken")
+    @Expose
+    private String user_tocken;
+
     @SerializedName("login_time")
     @Expose
     private Integer loginTime;
@@ -323,5 +327,13 @@ public class ResultFrontLogin {
 
     public void setFoodLicense(String foodLicense) {
         this.foodLicense = foodLicense;
+    }
+
+    public String getUser_tocken() {
+        return user_tocken;
+    }
+
+    public void setUser_tocken(String user_tocken) {
+        this.user_tocken = user_tocken;
     }
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/l1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -58,7 +59,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:orientation="vertical"
-                    android:layout_gravity="center"
                     tools:ignore="Suspicious0dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -138,14 +138,16 @@
                 style="@style/customfontstyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minimum Amount:100"
+                android:text="Minimum Amount:10"
                 android:textColor="@color/colorAccent"
                 android:textSize="14dp" />
 
             <View
+                android:id="@+id/vMax"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_margin="2dp"
+                android:visibility="gone"
                 android:background="@color/grey_40" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -154,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Maximum Amount:100"
+                android:visibility="gone"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp" />
         </LinearLayout>
@@ -166,4 +169,47 @@
         android:layout_margin="5dp"
         android:background="@color/grey_20"
         android:padding="4dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/label_po_edit"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/edit"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@color/grey_60" />
+
+        <ImageButton
+            android:id="@+id/label_delete"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/garbage"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="5dp"
+        android:background="@color/grey_20"
+        android:padding="4dp" />
+
 </LinearLayout>

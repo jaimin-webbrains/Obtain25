@@ -27,6 +27,7 @@ import com.obtain25.R;
 import com.obtain25.api.RetrofitHelper;
 import com.obtain25.model.SuccessModel;
 import com.obtain25.model.login.LoginModel;
+import com.obtain25.utils.AppPreferences;
 import com.obtain25.utils.PrefUtils;
 import com.obtain25.utils.ViewDialog;
 
@@ -50,12 +51,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     LoginModel loginModel;
     ImageView show_confirm;
     Dialog dialog;
+    String updateToken;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        updateToken = AppPreferences.getToken(LoginActivity.this);
 
         loginModel = PrefUtils.getUser(LoginActivity.this);
         viewDialog = new ViewDialog(LoginActivity.this);
@@ -64,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             loginModel = PrefUtils.getUser(LoginActivity.this);
             if (loginModel.getSessionData() != null) {
                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                i.putExtra("updateToken", updateToken);
                 i.putExtra("type", "1");
                 startActivity(i);
                 finish();
@@ -126,6 +130,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             hashMap.put("email", email_id + "");
             hashMap.put("password", pass_word + "");
+            hashMap.put("user_tocken", updateToken + "");
 
             showProgressDialog();
             Call<LoginModel> loginModelCall = RetrofitHelper.createService(RetrofitHelper.Service.class).LoginModel(hashMap);
@@ -145,6 +150,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                         i.putExtra("type", "0");
+                        i.putExtra("updateToken", object.getSessionData().getUser_tocken());
                         startActivity(i);
                         finish();
 

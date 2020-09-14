@@ -48,6 +48,7 @@ import com.google.gson.Gson;
 import com.obtain25.R;
 import com.obtain25.api.BuildConstants;
 import com.obtain25.api.RetrofitHelper;
+import com.obtain25.model.SuccessModel;
 import com.obtain25.model.login.LoginModel;
 import com.obtain25.model.term.ResultGetTurms;
 import com.obtain25.utils.PrefUtils;
@@ -80,7 +81,7 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
     DrawerLayout drawer;
     ImageView imageView;
     Dialog dialog;
-    String type;
+    String type, updateToken;
     Integer loginId, savedId;
     private AppBarConfiguration mAppBarConfiguration;
     private long UPDATE_INTERVAL = 2
@@ -92,6 +93,7 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         type = getIntent().getStringExtra("type");
+        updateToken = getIntent().getStringExtra("updateToken");
 
         loginModel = PrefUtils.getUser(HomeActivity.this);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -168,7 +170,44 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
         } else if (type.equals("1")) {
 
         }
+        GetToken();
+    }
 
+    private void GetToken() {
+        HashMap<String, String> hashMap = new HashMap<>();
+
+        hashMap.put("id", loginModel.getSessionData().getId() + "");
+        hashMap.put("type", "1" + "");
+        hashMap.put("tocken", updateToken + "");
+        Log.e("TAG", "Tokenpojo: " + hashMap);
+        showProgressDialog();
+        Call<SuccessModel> loginModelCall = RetrofitHelper.createService(RetrofitHelper.Service.class).RefreshToken(hashMap);
+        loginModelCall.enqueue(new Callback<SuccessModel>() {
+
+            @Override
+            public void onResponse(@NonNull Call<SuccessModel> call, @NonNull Response<SuccessModel> response) {
+                SuccessModel object = response.body();
+                hideProgressDialog();
+
+                if (object != null && object.getError() == false) {
+                    Log.e("TAG", "Login_Response : " + new Gson().toJson(response.body()));
+
+
+                    Toast.makeText(HomeActivity.this, object.getMsg(), Toast.LENGTH_SHORT).show();
+
+
+                } else if (object != null && object.getError() == true) {
+                    Toast.makeText(HomeActivity.this, object.getMsg(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<SuccessModel> call, @NonNull Throwable t) {
+                hideProgressDialog();
+                t.printStackTrace();
+                Log.e("Login_Response", t.getMessage() + "");
+            }
+        });
     }
 
     @Override

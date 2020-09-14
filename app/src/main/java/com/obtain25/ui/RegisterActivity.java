@@ -196,7 +196,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             hashMap.put("food_license", food + "");
             hashMap.put("latitude", AppPreferences.getLati(this) + "");
             hashMap.put("longitude", AppPreferences.getLongi(this) + "");
-            //hashMap.put("user_tocken", updateToken);
+            hashMap.put("user_tocken", updateToken);
 
 
             Log.e("HasMap =>", hashMap + "");

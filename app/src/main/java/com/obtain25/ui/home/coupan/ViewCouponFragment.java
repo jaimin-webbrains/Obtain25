@@ -214,7 +214,14 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
             holder.txtDiscount.setText("Discount Value : " + datum.getDiscountValue() + "");
             holder.txtType.setText("Discount Type : " + datum.getDiscountType() + "");
             holder.txtAmount.setText("Minimum Amount : " + datum.getMinimumAmount() + "");
-            holder.txtMaxAmount.setText("Maximum Amount : " + datum.getMaximum_amount() + "");
+            if (datum.getMaximum_amount() != null) {
+                holder.vMax.setVisibility(View.VISIBLE);
+                holder.txtMaxAmount.setVisibility(View.VISIBLE);
+                holder.txtMaxAmount.setText("Maximum Amount : " + datum.getMaximum_amount() + "");
+            } else {
+                holder.vMax.setVisibility(View.GONE);
+                holder.txtMaxAmount.setVisibility(View.GONE);
+            }
             holder.imgpercent.setText(datum.getActive() + "");
             if (datum.getRestoPhoto() != null) {
                 Glide.with(getActivity()).
@@ -445,6 +452,7 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
             ImageView img;
             ImageButton label_po_edit, label_delete;
             LinearLayout l1;
+            View vMax;
 
             public MyViewHolder(View view) {
                 super(view);
@@ -460,6 +468,7 @@ public class ViewCouponFragment extends Fragment implements View.OnClickListener
                 label_delete = view.findViewById(R.id.label_delete);
                 label_po_edit = view.findViewById(R.id.label_po_edit);
                 l1 = view.findViewById(R.id.l1);
+                vMax = view.findViewById(R.id.vMax);
 
 
             }
