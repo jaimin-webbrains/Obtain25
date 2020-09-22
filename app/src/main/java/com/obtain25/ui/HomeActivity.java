@@ -193,7 +193,7 @@ public class HomeActivity extends AppCompatActivity implements LocationListener,
                     Log.e("TAG", "Login_Response : " + new Gson().toJson(response.body()));
 
 
-                    Toast.makeText(HomeActivity.this, object.getMsg(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(HomeActivity.this, object.getMsg(), Toast.LENGTH_SHORT).show();
 
 
                 } else if (object != null && object.getError() == true) {
