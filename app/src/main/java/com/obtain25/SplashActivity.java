@@ -93,7 +93,7 @@ public class SplashActivity extends AppCompatActivity implements LocationListene
                     startActivity(i);
                     finish();
                 }
-            }, 2000);
+            }, 3000);
         }
 
     }
