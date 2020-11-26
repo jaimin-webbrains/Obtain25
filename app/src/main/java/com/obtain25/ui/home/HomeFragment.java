@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 import com.obtain25.R;
 import com.obtain25.api.BuildConstants;
 import com.obtain25.api.RetrofitHelper;
+import com.obtain25.model.SuccessModel;
 import com.obtain25.model.coupon.ResultDisplayActiveRestaurantCoupon;
 import com.obtain25.model.coupon.ResultDisplayActiveRestaurantCoupon_;
 import com.obtain25.model.login.LoginModel;
@@ -47,7 +48,6 @@ import retrofit2.Response;
 
 
 public class HomeFragment extends Fragment {
-
     protected ViewDialog viewDialog;
     AppCompatTextView txt_name;
     FloatingActionButton fab;
@@ -64,7 +64,6 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-
         loginModel = PrefUtils.getUser(getActivity());
         viewDialog = new ViewDialog(getContext());
         viewDialog.setCancelable(false);
@@ -88,7 +87,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
 
         return root;
     }
