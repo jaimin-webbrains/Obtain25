@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -187,18 +188,19 @@ public class HomeFragment extends Fragment {
 
             final ResultDisplayActiveRestaurantCoupon_ datum = moviesList.get(position);
 
-
+            holder.lView.setVisibility(View.GONE);
+            holder.view1.setVisibility(View.GONE);
             holder.txtName.setText(datum.getName() + "");
             holder.txtDiscount.setText("Discount Value : " + datum.getDiscountValue() + "");
             holder.txtType.setText("Discount Type : " + datum.getDiscountType() + "");
             holder.txtAmount.setText("Minimum Amount : " + datum.getMinimumAmount() + "");
             if (datum.getMaximum_amount() != null) {
-              holder.vMax.setVisibility(View.VISIBLE);
-              holder.txtMaxAmount.setVisibility(View.VISIBLE);
+                holder.vMax.setVisibility(View.VISIBLE);
+                holder.txtMaxAmount.setVisibility(View.VISIBLE);
                 holder.txtMaxAmount.setText("Maximum Amount : " + datum.getMaximum_amount() + "");
-            }else{
-              holder.vMax.setVisibility(View.GONE);
-              holder.txtMaxAmount.setVisibility(View.GONE);
+            } else {
+                holder.vMax.setVisibility(View.GONE);
+                holder.txtMaxAmount.setVisibility(View.GONE);
             }
 
             holder.imgpercent.setText(datum.getActive() + "");
@@ -227,7 +229,8 @@ public class HomeFragment extends Fragment {
 
             TextView imgpercent, txtAmount, txtType, txtDiscount, txtName, txtMaxAmount;
             ImageView img;
-            View vMax;
+            View vMax,view1;
+            LinearLayout lView;
 
 
             public MyViewHolder(View view) {
@@ -242,6 +245,8 @@ public class HomeFragment extends Fragment {
                 imgpercent = view.findViewById(R.id.imgpercent);
                 img = view.findViewById(R.id.img);
                 vMax = view.findViewById(R.id.vMax);
+                view1 = view.findViewById(R.id.view);
+                lView = view.findViewById(R.id.lView);
 
 
             }

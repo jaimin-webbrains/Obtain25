@@ -164,6 +164,7 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="5dp"
@@ -171,6 +172,7 @@
         android:padding="4dp" />
 
     <LinearLayout
+        android:id="@+id/lView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
