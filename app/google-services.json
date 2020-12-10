@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "82573160426",
+    "firebase_url": "https://restaurantobtain25.firebaseio.com",
+    "project_id": "restaurantobtain25",
+    "storage_bucket": "restaurantobtain25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82573160426:android:6ebb506214d36a3d52cc93",
+        "android_client_info": {
+          "package_name": "com.obtain25"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82573160426-8hd0aiuh47hia0nge1csor21v4bunbp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_P3XNA0j3v6VS_tdzX-k1NWPrcSOhnBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82573160426-8hd0aiuh47hia0nge1csor21v4bunbp8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
